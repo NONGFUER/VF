@@ -31,6 +31,7 @@
         </flexbox>
       </grid-item>
     </grid>
+    <panel :header="`列表`" :footer="footer" :list="list" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
 
@@ -47,7 +48,7 @@ Custom col:
 
 
 <script>
-import { Swiper, Grid, GridItem, GroupTitle, Flexbox, FlexboxItem } from 'vux';
+import { Swiper, Grid, GridItem, GroupTitle, Flexbox, FlexboxItem, Panel } from 'vux';
 import icon1 from '@/assets/lion.png';
 import icon2 from '@/assets/cat.png';
 import icon3 from '@/assets/monkey.png';
@@ -126,11 +127,36 @@ export default {
     GroupTitle,
     Flexbox,
     FlexboxItem,
+    Panel,
   },
   data() {
     return { demo01_list: baseList,
       labels: iconLabels,
       articles: articleList,
+      list: [{
+        src: 'http://somedomain.somdomain/x.jpg',
+        fallbackSrc: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+        title: '标题一',
+        desc: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
+        url: '/component/cell',
+      }, {
+        src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
+        title: '标题二',
+        desc: '由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。',
+        url: {
+          path: '/component/radio',
+          replace: false,
+        },
+        meta: {
+          source: '来源信息',
+          date: '时间',
+          other: '其他信息',
+        },
+      }],
+      footer: {
+        title: 'more',
+        url: 'http://www.baidu.com',
+      },
     };
   },
 
