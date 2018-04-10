@@ -1,9 +1,9 @@
 <template>
   <div id="app" style="height:100%" >
     <!-- <router-view></router-view> -->
-    <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
-      <x-header style="width:100%;position:absolute;left:0;top:0;z-index:100;">标题</x-header>
-      
+    <view-box ref="viewBox" body-padding-top="0px" body-padding-bottom="55px">
+      <!-- <x-header style="width:100%;position:absolute;left:0;top:0;z-index:100;">标题</x-header> -->
+      <!-- <f-header style="width:100%;position:absolute;left:0;top:0;z-index:100;"></f-header> -->
           <router-view></router-view>
        
       
@@ -18,6 +18,7 @@
 
 <script>
 import { Tabbar, TabbarItem, XHeader, ViewBox } from 'vux';
+import FHeader from './components/f-header/head';
 
 export default {
   name: 'app',
@@ -26,6 +27,7 @@ export default {
     TabbarItem,
     XHeader,
     ViewBox,
+    FHeader,
   },
 };
 </script>

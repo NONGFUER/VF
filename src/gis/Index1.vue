@@ -1,10 +1,10 @@
 <template>
   <div>
-    <f-search position="absolute" auto-scroll-to-top top="0px" ref="search" ></f-search>
+    <!-- <f-search position="absolute" auto-scroll-to-top top="0px" ref="search" ></f-search> -->
     <swiper :list="demo01_list" dots-position="center" auto ></swiper>
     <div class="bottomAll">
      <grid :cols="4" :show-lr-borders="false" :show-vertical-dividers="false" class="cus-girds">    
-       <grid-item v-for=" i in 8" :key="i" class="cus-grid">
+       <grid-item v-for=" i in 8" :key="i" class="cus-grid" @click.native="go(labels[i-1].adres)">
          <div class="grid-content">
            <div class="icon-style icon-common" :class="labels[i-1].class"></div>
            <span>{{labels[i-1].label}}</span>
@@ -57,32 +57,40 @@ import icon1 from '@/assets/lion.png';
 import icon2 from '@/assets/cat.png';
 import icon3 from '@/assets/monkey.png';
 import icon4 from '@/assets/cow.png';
-import FSearch from './f-search/index';
+import FSearch from '../components/f-search/index';
 
 const iconLabels = [{
   label: '基盘',
   class: 'icon-jipan',
+  adres: 'jipan',
 }, {
   label: '竞争店',
   class: 'icon-jingzhengdian',
+  adres: 'jingzhengdian',
 }, {
   label: '店铺',
   class: 'icon-mart',
+  adres: 'mart',
 }, {
   label: '合约管理',
   class: 'icon-agree',
+  adres: 'agree',
 }, {
   label: '开发报表',
   class: 'icon-excel',
+  adres: 'excel',
 }, {
   label: '地图找店',
   class: 'icon-gis',
+  adres: 'gis',
 }, {
   label: '查成交',
   class: 'icon-deal',
+  adres: 'deal',
 }, {
   label: '开发百科',
   class: 'icon-wiki',
+  adres: 'wiki',
 }];
 const baseList = [{
   url: 'https://static.vux.li/demo/1.jpg',
@@ -137,6 +145,9 @@ export default {
     FSearch,
   },
   methods: {
+    go(name) {
+      this.$router.push(`${name}`);
+    },
   },
   data() {
     return { demo01_list: baseList,
