@@ -7,11 +7,11 @@
           <router-view></router-view>
        
       
-      <Tabbar slot="bottom">
+      <!-- <Tabbar slot="bottom">
         <TabbarItem><span slot="label">首页</span></TabbarItem>
         <TabbarItem><span slot="label">消息</span></TabbarItem>
         <TabbarItem><span slot="label">我</span></TabbarItem>
-      </Tabbar>
+      </Tabbar> -->
    </view-box>
   </div>
 </template>
